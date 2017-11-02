@@ -1,0 +1,68 @@
+version: '2'
+services:
+  rockermqnamesrv1:
+    labels:
+      io.daocloud.dce.compose.endpoint-spec.mode: dnsrr
+      io.daocloud.dce.compose.placement.constraints: '["node.labels.rocketmqpool1==rocketmqpool1"]'
+    volumes:
+    - /data:/data
+    image: daocloud.io/daocloud/rocketmq:latest
+    ports:
+    - 9876:9876
+    environment:
+    - ROCKETMQ_ROLE=namesrv
+  rockermqnamesrv2:
+    labels:
+      io.daocloud.dce.compose.endpoint-spec.mode: dnsrr
+      io.daocloud.dce.compose.placement.constraints: '["node.labels.rocketmqpool1==rocketmqpool2"]'
+    volumes:
+    - /data:/data
+    image: daocloud.io/daocloud/rocketmq:latest
+    ports:
+    - 9876:9876
+    environment:
+    - ROCKETMQ_ROLE=namesrv
+  amaster:
+    labels:
+      io.daocloud.dce.compose.endpoint-spec.mode: dnsrr
+      # io.daocloud.dce.compose.placement.constraints: '["node.labels.rocketmqpool1==rocketmqpool1"]'
+    volumes:
+    - /data:/data
+    image: daocloud.io/daocloud/rocketmq:latest
+    ports:
+    - 2379
+    environment:
+    - ROCKETMQ_ROLE=broker-a
+  aslave:
+    labels:
+      io.daocloud.dce.compose.endpoint-spec.mode: dnsrr
+      # io.daocloud.dce.compose.placement.constraints: '["node.labels.rocketmqpool1==rocketmqpool1"]'
+    volumes:
+    - /data:/data
+    image: daocloud.io/daocloud/rocketmq:latest
+    ports:
+    - 2379
+    environment:
+    - ROCKETMQ_ROLE=broker-a-slave
+  bmaster:
+    labels:
+      io.daocloud.dce.compose.endpoint-spec.mode: dnsrr
+      # io.daocloud.dce.compose.placement.constraints: '["node.labels.rocketmqpool1==rocketmqpool1"]'
+    volumes:
+    - /data:/data
+    image: daocloud.io/daocloud/rocketmq:latest
+    ports:
+    - 2379
+    environment:
+    - ROCKETMQ_ROLE=broker-b
+  bslave:
+    labels:
+      io.daocloud.dce.compose.endpoint-spec.mode: dnsrr
+      # io.daocloud.dce.compose.placement.constraints: '["node.labels.rocketmqpool1==rocketmqpool1"]'
+    volumes:
+    - /data:/data
+    image: daocloud.io/daocloud/rocketmq:latest
+    ports:
+    - 2379
+    environment:
+    - ROCKETMQ_ROLE=broker-b-slave
