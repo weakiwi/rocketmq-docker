@@ -29,4 +29,4 @@ ENV ROCKETMQ_HOME  /opt/rocketmq-${ROCKETMQ_VERSION}/distribution/target/apache-
 
 ENV JAVA_OPT " -Duser.home=/opt"
 
-ENTRYPOINT ["/root/entrypoint.sh"]
+CMD ["/root/entrypoint.sh"]
