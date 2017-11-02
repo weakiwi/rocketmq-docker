@@ -28,4 +28,5 @@ WORKDIR  ${ROCKETMQ_HOME}/distribution/target/apache-rocketmq
 ENV ROCKETMQ_HOME  /opt/rocketmq-${ROCKETMQ_VERSION}/distribution/target/apache-rocketmq
 
 ENV JAVA_OPT " -Duser.home=/opt"
-ENTRYPOINT ["/root/entrypoint.sh"]
+
+CMD ["/root/entrypoint.sh"]
