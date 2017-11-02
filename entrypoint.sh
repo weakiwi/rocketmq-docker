@@ -21,7 +21,8 @@ then
 elif [ "${ROCKETMQ_ROLE}x" == "namesrv"x ];
 then
     cd ${ROCKETMQ_HOME}/target/apache-rocketmq/bin
-    bash mqnamesrv
+    ROCKETMQ_HOME=""
+    sh mqnamesrv
 else
     echo "env ROCKETMQ_ROLE is empty, exit......."
 fi
