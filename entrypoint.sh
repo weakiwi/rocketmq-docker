@@ -22,7 +22,7 @@ elif [ "${ROCKETMQ_ROLE}x" == "namesrv"x ];
 then
     cd ${ROCKETMQ_HOME}/target/apache-rocketmq/bin
     ROCKETMQ_HOME=""
-    sh mqnamesrv
+    sh /opt/rocketmq-rocketmq-all-4.1.0-incubating/distribution/target/apache-rocketmq/bin/runserver.sh org.apache.rocketmq.namesrv.NamesrvStartup
 else
     echo "env ROCKETMQ_ROLE is empty, exit......."
 fi
