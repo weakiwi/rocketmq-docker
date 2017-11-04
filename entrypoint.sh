@@ -1,4 +1,4 @@
-#!/target/apache-rocketmq/bin/bash
+#!/bin/bash
 
 set -x
 
