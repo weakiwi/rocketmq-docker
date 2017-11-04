@@ -20,9 +20,9 @@ then
     bash mqbroker -c ../conf/2m-2s-sync/broker-b-s.properties -n rockermqnamesrv1:9876, rocketmqnamesrv2:9876
 elif [ "${ROCKETMQ_ROLE}x" == "namesrv"x ];
 then
-    cd ${ROCKETMQ_HOME}/target/apache-rocketmq/bin
+    cd ${ROCKETMQ_HOME}/bin
     ROCKETMQ_HOME=""
-    sh /opt/rocketmq-rocketmq-all-4.1.0-incubating/distribution/target/apache-rocketmq/bin/runserver.sh org.apache.rocketmq.namesrv.NamesrvStartup
+    sh bin/runserver.sh org.apache.rocketmq.namesrv.NamesrvStartup
 else
     echo "env ROCKETMQ_ROLE is empty, exit......."
 fi
