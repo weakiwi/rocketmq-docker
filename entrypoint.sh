@@ -9,7 +9,7 @@ sed -i "s/8g/128m/g" ${ROCKETMQ_HOME}/bin/runbroker.sh
 sed -i "s/2g/128m/g" ${ROCKETMQ_HOME}/bin/runbroker.sh
 if [ "${ROCKETMQ_ROLE}x" == "broker-a"x ];
 then
-    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c ../conf/2m-2s-sync/broker-a.properties -n rockermqnamesrv1:9876, rocketmqnamesrv2:9876
+    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-a.properties -n rockermqnamesrv1:9876, rocketmqnamesrv2:9876
 elif [ "${ROCKETMQ_ROLE}x" == "broker-a-slave"x ];
 then
     cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c ../conf/2m-2s-sync/broker-a-s.properties -n rockermqnamesrv1:9876, rocketmqnamesrv2:9876
