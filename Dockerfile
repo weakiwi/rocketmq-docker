@@ -9,6 +9,8 @@ ENV ROCKETMQ_HOME  /opt/rocketmq-${ROCKETMQ_VERSION}/distribution
 
 
 COPY entrypoint.sh /root/entrypoint.sh
+COPY portcheck /root/portcheck
+RUN chmod +x /root/portcheck
 
 WORKDIR  ${ROCKETMQ_HOME}
 
