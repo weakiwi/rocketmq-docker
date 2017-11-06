@@ -1,4 +1,4 @@
-FROM maven
+FROM registry.cn-hangzhou.aliyuncs.com/acs/maven
 
 # Rocketmq version
 ENV ROCKETMQ_VERSION rocketmq-all-4.1.0-incubating
@@ -7,7 +7,7 @@ ENV ROCKETMQ_VERSION rocketmq-all-4.1.0-incubating
 ENV ROCKETMQ_HOME  /opt/rocketmq-${ROCKETMQ_VERSION}/distribution
 
 
-
+COPY settings.xml /usr/share/maven/ref/
 COPY entrypoint.sh /root/entrypoint.sh
 COPY portcheck /root/portcheck
 RUN chmod +x /root/portcheck
