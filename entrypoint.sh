@@ -15,25 +15,25 @@ then
     /root/portcheck
     namesrv1=`ping rocketmqnamesrv1 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     namesrv2=`ping rocketmqnamesrv2 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
-    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-a.properties -n rocketmqnamesrv1:9876,rocketmqnamesrv2:9876
+    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-a.properties -n rocketmqnamesrv1:9876;rocketmqnamesrv2:9876
 elif [ "${ROCKETMQ_ROLE}x" == "broker-a-slave"x ];
 then
     /root/portcheck
     namesrv1=`ping rocketmqnamesrv1 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     namesrv2=`ping rocketmqnamesrv2 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
-    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-a-s.properties -n rocketmqnamesrv1:9876,rocketmqnamesrv2:9876
+    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-a-s.properties -n rocketmqnamesrv1:9876;rocketmqnamesrv2:9876
 elif [ "${ROCKETMQ_ROLE}x" == "broker-b"x ];
 then
     /root/portcheck
     namesrv1=`ping rocketmqnamesrv1 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     namesrv2=`ping rocketmqnamesrv2 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
-    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-b.properties -n rocketmqnamesrv1:9876,rocketmqnamesrv2:9876
+    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-b.properties -n rocketmqnamesrv1:9876;rocketmqnamesrv2:9876
 elif [ "${ROCKETMQ_ROLE}x" == "broker-b-slave"x ];
 then
     /root/portcheck
     namesrv1=`ping rocketmqnamesrv1 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     namesrv2=`ping rocketmqnamesrv2 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
-    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-b-s.properties -n rocketmqnamesrv1:9876,rocketmqnamesrv2:9876
+    cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-b-s.properties -n rocketmqnamesrv1:9876;rocketmqnamesrv2:9876
 elif [ "${ROCKETMQ_ROLE}x" == "namesrv"x ];
 then
     cd ${ROCKETMQ_HOME} && sh bin/runserver.sh org.apache.rocketmq.namesrv.NamesrvStartup
