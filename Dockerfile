@@ -26,8 +26,8 @@ WORKDIR /opt/rocketmq-${ROCKETMQ_VERSION}
 
 
 RUN mvn -Prelease-all -DskipTests clean install -U
-WORKDIR  ${ROCKETMQ_HOME}/distribution/target/apache-rocketmq
 ENV ROCKETMQ_HOME  /opt/rocketmq-${ROCKETMQ_VERSION}/distribution/target/apache-rocketmq
+WORKDIR  ${ROCKETMQ_HOME}
 
 ENV JAVA_OPT " -Duser.home=/opt"
 

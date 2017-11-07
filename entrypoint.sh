@@ -24,7 +24,7 @@ then
     namesrv1=`ping rocketmqnamesrv1 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     namesrv2=`ping rocketmqnamesrv2 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     myip=`ping $SERVICENAME -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
-    cd ${ROCKETMQ_HOME} && echo "brokerIP1=${myip}" > conf/2m-2s-sync/broker-a-s.properties
+    cd ${ROCKETMQ_HOME} && echo "brokerIP2=${myip}" > conf/2m-2s-sync/broker-a-s.properties
     cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-a-s.properties -n "rocketmqnamesrv1:9876;rocketmqnamesrv2:9876"
 elif [ "${ROCKETMQ_ROLE}x" == "broker-b"x ];
 then
@@ -40,7 +40,7 @@ then
     namesrv1=`ping rocketmqnamesrv1 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     namesrv2=`ping rocketmqnamesrv2 -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
     myip=`ping $SERVICENAME -c1 | grep from | awk '{ print $4 }'|cut -d: -f1`
-    cd ${ROCKETMQ_HOME} && echo "brokerIP1=${myip}" > conf/2m-2s-sync/broker-b-s.properties
+    cd ${ROCKETMQ_HOME} && echo "brokerIP2=${myip}" > conf/2m-2s-sync/broker-b-s.properties
     cd ${ROCKETMQ_HOME} && sh bin/mqbroker -c conf/2m-2s-sync/broker-b-s.properties -n "rocketmqnamesrv1:9876;rocketmqnamesrv2:9876"
 elif [ "${ROCKETMQ_ROLE}x" == "namesrv"x ];
 then
